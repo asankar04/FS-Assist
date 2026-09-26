@@ -1,3 +1,4 @@
 import { SimVariables } from "../lib/commandMap.js";
 
-export const sessionState: Partial<Record<SimVariables, number>> = {};
+export type SessionState = Partial<Record<SimVariables, number>>;
+export const sessionState: SessionState = {};

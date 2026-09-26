@@ -9,7 +9,7 @@ import {
 } from "node-simconnect";
 import { commandMap } from "./lib/commandMap.js";
 import { getSimConnection } from "./simConnect/connect.js";
-// import { sendEventToSim } from "./lib/events.js";
+import { sendEventToSim } from "./lib/events.js";
 import { sessionState } from "./data/sessionState.js";
 import { DefinitionID, RequestID } from "./lib/types.js";
 
@@ -68,6 +68,15 @@ async function main() {
     handle.on('quit', function () {
         console.log('FS-2024 quit');
     });
+
+    // Test event sending
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    const testEvent = commandMap.FLAPS_FULL;
+    await sendEventToSim(handle, testEvent);
+
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    const testEvent2 = commandMap.FLAPS_1;
+    await sendEventToSim(handle, testEvent2);
 }
 
 main().catch(console.error);

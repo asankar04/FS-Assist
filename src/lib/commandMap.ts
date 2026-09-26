@@ -1,4 +1,4 @@
-type Command = {
+export type Command = {
     eventId: number,
     eventName: string,
     simVariable: string,
