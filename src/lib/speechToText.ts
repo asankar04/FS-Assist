@@ -1,12 +1,9 @@
 import { DeepgramClient } from "@deepgram/sdk";
 import { PvRecorder } from "@picovoice/pvrecorder-node";
 
-const DEEPGRAM_API_KEY = '9d4c40ebb0dfec93e4c44500882843336f228dd6';
-if (!DEEPGRAM_API_KEY) {
-  throw new Error("DEEPGRAM_API_KEY is not set");
-}
+const DEEPGRAM_API_KEY = process.env.DEEPGRAM_API_KEY;
 
-const client = new DeepgramClient({ apiKey: DEEPGRAM_API_KEY! });
+const client = new DeepgramClient({ apiKey: DEEPGRAM_API_KEY });
 
 // Initialize deepgram connection
 const connection = await client.listen.v1.connect({
