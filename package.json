@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx src/index.ts"
+    "start": "dotenv -e .env -- tsx src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@deepgram/sdk": "^5.12.0",
+    "@picovoice/pvrecorder-node": "^1.2.9",
+    "dotenv": "^18.0.4",
     "node-simconnect": "^4.2.0"
   },
   "devDependencies": {
